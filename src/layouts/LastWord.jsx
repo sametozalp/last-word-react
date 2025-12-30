@@ -1,7 +1,11 @@
 import React from 'react'
 
-export default function LastWord() {
+export default function LastWordContainer() {
   return (
-    <div>LastWord</div>
+    <div>
+      <p>Tag</p>
+      <p>Söz</p>
+      <p>anonymus - zaman</p>
+    </div>
   )
 }
