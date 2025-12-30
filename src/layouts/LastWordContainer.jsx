@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import LastWordService from '../services/lastWordService'
+import SendWord from './SendWord'
 
 export default function LastWordContainer() {
   const [lastWord, setLastWord] = useState("")
@@ -22,13 +23,7 @@ export default function LastWordContainer() {
         {lastWord.country && <img src={lastWord.country.flagUrl} alt={lastWord.country.name} width={15} height={10} style={{marginLeft:10}} />}
       </div>
 
-      <div className="input-wrapper-responsive">
-        <input
-          type="text"
-          placeholder="Son sözünü buraya bırak..."
-        />
-        <button>→</button>
-      </div>
+      <SendWord />
     </div>
   )
 }
