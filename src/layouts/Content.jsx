@@ -3,7 +3,7 @@ import LastWordContainer from './LastWord'
 
 export default function Content() {
   return (
-    <div>
+    <div style={{ flex: 1, display: 'flex', alignItems: 'center' }}>
       <LastWordContainer />
     </div>
   )

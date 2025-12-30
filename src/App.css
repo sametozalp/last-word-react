@@ -1,3 +1,52 @@
+:root {
+  --bg: #050505;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --accent: #ffffff;
+  --text-muted: #888;
+}
+
+body {
+  background-color: var(--bg) !important;
+  margin: 0;
+  color: white !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow: hidden;
+}
+
+/* Arka plandaki ışık hüzmesi */
+.App::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(100, 100, 255, 0.08) 0%, rgba(0,0,0,0) 70%);
+  top: -100px;
+  right: -100px;
+  z-index: -1;
+  filter: blur(80px);
+}
+
 .App {
-  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* Semantic UI Grid Overrides */
+.ui.grid.main-layout {
+  height: 85vh;
+  width: 100%;
+  max-width: 1300px;
+}
+
+.glass-panel {
+  background: var(--glass) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 24px !important;
+  padding: 30px !important;
+  height: 100%;
 }
