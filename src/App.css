@@ -20,7 +20,7 @@ body {
   position: absolute;
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, rgba(100, 100, 255, 0.08) 0%, rgba(0,0,0,0) 70%);
+  background: radial-gradient(circle, rgba(100, 100, 255, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
   top: -100px;
   right: -100px;
   z-index: -1;
@@ -105,7 +105,7 @@ body {
 }
 
 .input-wrapper-responsive:focus-within {
-  border-color: rgba(255,255,255,0.2);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .input-wrapper-responsive input {
@@ -162,6 +162,13 @@ body {
 .lb-text {
   font-size: 0.9rem;
   margin: 0;
+}
+
+.lb-user {
+  font-size: 0.8rem;
+  margin: 0;
+  color: #8b8b8b;
+
 }
 
 .lb-time {

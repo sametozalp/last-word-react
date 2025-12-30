@@ -10,12 +10,6 @@ export default function LeaderBoard() {
     lastWordService.getLeaderBoard().then(result => setLeaders(result.data))
   }, [])
 
-  //  const leaders = [
-  //    { rank: '01', text: 'Zaman sadece bir illüzyon.', time: '14s 22dk' },
-  //    { rank: '02', text: 'Sessizlikte yankılanan...', time: '8s 05dk' },
-  //    { rank: '03', text: 'Kısa ve öz.', time: '3s 12dk' },
-  //  ];
-
   return (
     <div>
       <div className="lb-header">
@@ -28,6 +22,8 @@ export default function LeaderBoard() {
           <span className="lb-rank">{index + 1}</span>
           <div>
             <p className="lb-text">{item.text}</p>
+            <p className="lb-user">{item.personFullName}
+            {item.country && <img src={item.country.flagUrl} alt={item.country.name} width={15} height={10} style={{marginLeft:10}} />}</p>
             <small className="lb-time">{item.timeElapsed}</small>
           </div>
         </div>

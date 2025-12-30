@@ -18,7 +18,7 @@ export default function LastWordContainer() {
       </h1>
 
       <div className="word-meta">
-        — {lastWord.user} <span className="meta-divider">|</span> {lastWord.timeElapsed}
+        — {lastWord.personFullName} <span className="meta-divider">|</span> {lastWord.timeElapsed}
         {lastWord.country && <img src={lastWord.country.flagUrl} alt={lastWord.country.name} width={15} height={10} style={{marginLeft:10}} />}
       </div>
 
