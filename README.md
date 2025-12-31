@@ -3,7 +3,6 @@
 A social platform built with React where users can submit and view "last words" - meaningful quotes and messages. Features a real-time leaderboard, user authentication, and a beautiful glass-morphism inspired UI.
 
 ![React](https://img.shields.io/badge/React-18.3.1-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
 
 ## Features
 
