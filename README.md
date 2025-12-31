@@ -13,6 +13,10 @@ A social platform built with React where users can submit and view "last words" 
 - ⏱️ **Time Tracking**: See when each submission was posted
 - 🎨 **Modern UI**: Beautiful glass-morphism design with Semantic UI React
 
+<p align="center">
+  <img src="images/image.png" alt="Ui">
+</p>
+
 ## Tech Stack
 
 - **React** 18.3.1 - UI library
