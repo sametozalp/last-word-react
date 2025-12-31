@@ -1,4 +1,4 @@
-# Last Word React
+# Say Last Word
 
 A social platform built with React where users can submit and view "last words" - meaningful quotes and messages. Features a real-time leaderboard, user authentication, and a beautiful glass-morphism inspired UI.
 
