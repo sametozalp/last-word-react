@@ -13,22 +13,21 @@ export default function SendWord() {
         let lastWordService = new LastWordService()
         if (userData) {
             const user = JSON.parse(userData);
-            let data = {
-                "userProfileId": user.userProfileId,
-                "text": text
-
-            }
-            lastWordService.save(data).catch(error => {
-                if (error.response && error.response.status === 401) {
-                    let authService = new AuthService()
-                    authService.refreshAuthToken(user.accessToken).then(newUser => {
-                        localStorage.setItem('user', JSON.stringify(newUser.data));
-                        lastWordService.save(data).then(() => {
-                            window.location.reload();
+            lastWordService.save({userProfileId: user.userProfileId, text: text}, user.accessToken)
+                .then(() => {
+                    window.location.reload()
+                })
+                .catch(error => {
+                    if (error.response && error.response.status === 403) {
+                        let authService = new AuthService()
+                        authService.refreshToken(user.refreshToken).then(newUser => {
+                            localStorage.setItem('user', JSON.stringify(newUser.data));
+                            lastWordService.save({userProfileId: user.userProfileId, text: text}, user.accessToken).then(() => {
+                                window.location.reload();
+                            });
                         });
-                    });
-                }
-            });
+                    }
+                });
 
         } else {
             lastWordService.saveAnon({ text: text }).then(() => {

@@ -1,19 +1,23 @@
-import axios from "axios";
+import api from "./axiosInstance";
 
 export default class LastWordService {
     getLastWord() {
-        return axios.get("http://localhost:8080/api/last-word/v1/get-last-word")
+        return api.get("/api/last-word/v1/get-last-word")
     }
 
     getLeaderBoard() {
-        return axios.get("http://localhost:8080/api/last-word/v1/get-leader-board")
+        return api.get("/api/last-word/v1/get-leader-board")
     }
 
     saveAnon(data) {
-        return axios.post("http://localhost:8080/api/last-word/v1/save-anon", data)
+        return api.post("/api/last-word/v1/save-anon", data)
     }
 
-    save(data) {
-        return axios.post("http://localhost:8080/api/last-word/v1/save", data)
+    save(data, token) {
+        return api.post("/api/last-word/v1/save", data, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
     }
 }

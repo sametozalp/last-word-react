@@ -4,6 +4,8 @@ import Dashboard from './layouts/Dashboard';
 import 'semantic-ui-css/semantic.min.css'
 import Register from './layouts/Register';
 import Login from './layouts/Login';
+import 'react-toastify/dist/ReactToastify.css';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   return (
@@ -16,6 +18,10 @@ function App() {
         </Routes>
       </BrowserRouter>
 
+      <Toaster
+        position="bottom-right"
+        reverseOrder={false}
+      />
     </div>
   );
 }
