@@ -58,6 +58,7 @@ body {
   font-weight: 700;
   margin-bottom: 40px;
   padding-left: 20px;
+   align-items: center;
 }
 
 .content-wrapper {
@@ -181,4 +182,12 @@ body {
   align-items: center;
   justify-content: center;
   margin-right: 1em;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+
 }
