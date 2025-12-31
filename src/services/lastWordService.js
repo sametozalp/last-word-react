@@ -10,10 +10,10 @@ export default class LastWordService {
     }
 
     saveAnon(data) {
-        return axios.post("http://localhost:8082/api/last-word/v1/save-anon", data)
+        return axios.post("http://localhost:8080/api/last-word/v1/save-anon", data)
     }
 
     save(data) {
-        return axios.post("http://localhost:8082/api/last-word/v1/save", data)
+        return axios.post("http://localhost:8080/api/last-word/v1/save", data)
     }
 }
