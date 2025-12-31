@@ -1,14 +1,20 @@
 import React, { useState } from "react";
 import { Button, Form, Segment, Header } from "semantic-ui-react";
 import CountryDropdown from "./CountryDropdown";
+import AuthService from "../services/authService";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate(); // ✅ BURASI
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
   const [country, setCountry] = useState(null);
 
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // 🔥 OLMAZSA OLMAZ
+
     const requestBody = {
       email,
       password,
@@ -16,7 +22,14 @@ const Login = () => {
       country
     };
 
-    console.log("Giden JSON:", requestBody);
+    try {
+      const authService = new AuthService();
+      console.log(await authService.register(requestBody));
+
+      navigate("/"); // ✅ SADECE BUNU ÇAĞIR
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -34,7 +47,7 @@ const Login = () => {
             <CountryDropdown onSelect={setCountry} />
           </Form.Field>
 
-          <Button fluid primary disabled={!country}>
+          <Button fluid primary type="submit" disabled={!country}>
             Giriş Yap
           </Button>
         </Form>
