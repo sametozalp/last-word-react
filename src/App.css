@@ -175,3 +175,10 @@ body {
   color: #555;
   font-size: 0.7rem;
 }
+
+.char-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1em;
+}
