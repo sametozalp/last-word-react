@@ -1,17 +1,16 @@
 import React, { useState } from "react";
 import { Button, Form, Segment, Header } from "semantic-ui-react";
-import CountryDropdown from "./CountryDropdown";
 import AuthService from "../services/authService";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const navigate = useNavigate(); // ✅ BURASI
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // 🔥 OLMAZSA OLMAZ
+    e.preventDefault();
 
     const requestBody = {
       email,
@@ -20,9 +19,18 @@ const Login = () => {
 
     try {
       const authService = new AuthService();
-      console.log(await authService.register(requestBody));
+      await authService.login(requestBody).then((response) => {
+        localStorage.setItem('user', JSON.stringify(response.data));
 
-      navigate("/"); // ✅ SADECE BUNU ÇAĞIR
+        // const userData = localStorage.getItem("user");
+        // if (userData) {
+        //   console.log("id: " + JSON.parse(userData).id);
+        // } else {
+        //   console.log("user yok");
+        // }
+      })
+
+      navigate("/");
     } catch (error) {
       console.error(error);
     }

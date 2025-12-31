@@ -5,7 +5,7 @@ import AuthService from "../services/authService";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const navigate = useNavigate(); // ✅ BURASI
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +13,7 @@ const Register = () => {
   const [country, setCountry] = useState(null);
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // 🔥 OLMAZSA OLMAZ
+    e.preventDefault();
 
     const requestBody = {
       email,
@@ -24,9 +24,11 @@ const Register = () => {
 
     try {
       const authService = new AuthService();
-      console.log(await authService.register(requestBody));
+      await authService.register(requestBody).then((response) => {
+        localStorage.setItem('user', JSON.stringify(response.data));
+      });
 
-      navigate("/"); // ✅ SADECE BUNU ÇAĞIR
+      navigate("/");
     } catch (error) {
       console.error(error);
     }
