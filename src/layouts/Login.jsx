@@ -9,17 +9,13 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [fullName, setFullName] = useState("");
-  const [country, setCountry] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // 🔥 OLMAZSA OLMAZ
 
     const requestBody = {
       email,
-      password,
-      fullName,
-      country
+      password
     };
 
     try {
@@ -38,16 +34,9 @@ const Login = () => {
         <Header textAlign="center">Giriş Yap</Header>
 
         <Form onSubmit={handleSubmit}>
-          <Form.Input label="Ad Soyad" onChange={(e) => setFullName(e.target.value)} />
           <Form.Input label="E-posta" type="email" onChange={(e) => setEmail(e.target.value)} />
           <Form.Input label="Şifre" type="password" onChange={(e) => setPassword(e.target.value)} />
-
-          <Form.Field>
-            <label>Ülke</label>
-            <CountryDropdown onSelect={setCountry} />
-          </Form.Field>
-
-          <Button fluid primary type="submit" disabled={!country}>
+          <Button fluid primary type="submit">
             Giriş Yap
           </Button>
         </Form>
