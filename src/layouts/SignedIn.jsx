@@ -11,7 +11,7 @@ export default function SignedIn() {
     return (
         <div>
             <Menu.Item>
-                <Image avatar spaced="right" src="https://1k-cdn.com/resimler/uyeler/662076_1719308947_QLvUO.jpg" />
+                <Image avatar spaced="right" src="https://www.shutterstock.com/image-vector/default-avatar-profile-icon-social-600nw-1906669723.jpg" />
                 <Dropdown pointing="top left" text='Samet'>
                     <Dropdown.Menu>
                         <Dropdown.Item text="Bilgilerim" icon="info" />
