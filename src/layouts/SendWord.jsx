@@ -13,7 +13,7 @@ export default function SendWord() {
         let lastWordService = new LastWordService()
         if (userData) {
             const user = JSON.parse(userData);
-            lastWordService.save({userProfileId: user.userProfileId, text: text}, user.accessToken)
+            lastWordService.save({ userProfileId: user.userProfileId, text: text }, user.accessToken)
                 .then(() => {
                     window.location.reload()
                 })
@@ -22,9 +22,12 @@ export default function SendWord() {
                         let authService = new AuthService()
                         authService.refreshToken(user.refreshToken).then(newUser => {
                             localStorage.setItem('user', JSON.stringify(newUser.data));
-                            lastWordService.save({userProfileId: user.userProfileId, text: text}, user.accessToken).then(() => {
+                            lastWordService.save({ userProfileId: user.userProfileId, text: text }, user.accessToken).then(() => {
                                 window.location.reload();
-                            });
+                            })
+                        }).catch(error => {
+                            localStorage.removeItem("user");
+                            window.location.reload();
                         });
                     }
                 });
