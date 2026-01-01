@@ -2,7 +2,7 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
 const api = axios.create({
-    baseURL: 'https://equal-darda-ozalp-5277f3ca.koyeb.app/'
+    baseURL: 'https://prickly-terrie-ozalp-e022064e.koyeb.app'
 });
 
 api.interceptors.response.use(
