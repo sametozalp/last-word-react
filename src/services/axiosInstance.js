@@ -2,7 +2,7 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 
 const api = axios.create({
-    baseURL: 'http://localhost:8080'
+    baseURL: 'https://established-darline-ozalp-f80bf030.koyeb.app'
 });
 
 api.interceptors.response.use(
